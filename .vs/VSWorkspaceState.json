@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\NLayerdAppDemo",
+    "\\NLayerdAppDemo\\Northwind.Business",
+    "\\NLayerdAppDemo\\Northwind.DataAccess",
+    "\\NLayerdAppDemo\\Northwind.Entities",
+    "\\NLayerdAppDemo\\Northwind.Entities\\Concrete",
+    "\\NLayerdAppDemo\\Northwind.WebFormsUI",
+    "\\NLayerdAppDemo\\NortwindEntities\\Properties"
+  ],
+  "SelectedNode": "\\NLayerdAppDemo\\Northwind.WebFormsUI\\Form1.Designer.cs",
+  "PreviewInSolutionExplorer": false
+}

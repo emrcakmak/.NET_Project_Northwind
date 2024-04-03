@@ -19,12 +19,60 @@ namespace Northwind.WebFormsUI
         {
             InitializeComponent();
             _productService= new ProductManager(new EfProductDal());
+            _categoryService = new CategoryManager(new EfCategoryDal());
         }
         private IProductService _productService;
+
+        private ICategoryService _categoryService;
         private void Form1_Load(object sender, EventArgs e)
         {
+            LoadProducts();
+            LoadCategories();
             
+        }
+
+
+
+
+
+        private void LoadCategories()
+        {
+
+            cbcCategory.DataSource = _categoryService.GetAll();
+            cbcCategory.DisplayMember = "CategoryName";
+            cbcCategory.ValueMember = "CategoryId";
+
+        }
+        private void LoadProducts()
+        {
+
             dgwProduct.DataSource = _productService.GetAll();
+
+        }
+
+        private void cbcCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dgwProduct.DataSource = _productService.GetProductsByCategory(Convert.ToInt32(cbcCategory.SelectedValue));
+            }
+            catch
+            {
+
+            }
+           
+        }
+
+        private void tbxProductName_TextChanged(object sender, EventArgs e)
+        {
+
+            if (String.IsNullOrEmpty(tbxProductName.Text))
+            {
+                LoadProducts();
+
+            }
+                dgwProduct.DataSource = _productService.GetProductsByName(tbxProductName.Text);
+
         }
     }
 }
