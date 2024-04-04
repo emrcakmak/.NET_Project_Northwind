@@ -20,6 +20,11 @@ namespace Northwind.DataAccess.Concrete.NHibernate
             throw new NotImplementedException();
         }
 
+        public void Delete(Product Entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public Product Get(int id)
         {
             throw new NotImplementedException();
