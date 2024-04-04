@@ -23,6 +23,28 @@ namespace Northwind.Business.Concrete
 
         }
 
+        public void Add(Product product)
+        {
+            _productDal.Add(product);
+        }
+
+        public void Delete(Product product)
+        {
+
+            try 
+            {
+                _productDal.Delete(product);
+
+            }
+
+            catch
+            {
+                throw new Exception("deletion could not be performed");
+            }
+
+           
+        }
+
         public List<Product> GetAll()
         {
             //Buisness Code
@@ -44,6 +66,11 @@ namespace Northwind.Business.Concrete
             var a = _productDal.GetAll().Where(p => p.ProdyctName.ToLower().Contains(text) );
 
             return a.ToList();
+        }
+
+        public void Update(Product product)
+        {
+            _productDal.Update(product);
         }
     }
 }
